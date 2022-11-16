@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le fichier CSS -->
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <!-- Le liens pour la lecture des logos sur Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Les petits plats</title>
+</head>
+
+<body>
+
+    <header class="header header_dimensions">
+        <img src="assets/logo_resize.jpg" alt="Logo Les petits plats">
+        <div class="research research_dimensions">
+            <form>
+                <p>
+                    <label for="search-tool"></label>
+                    <input type="search" name="search-tool" id="search-tool" class="search-request search-request_dimensions" placeholder="Rechercher une recette" size="120" maxlength="30">
+                </p><!--size="30" maxlength="10"-->
+            </form>
+            <button class="button button_dimensions"><i class="fa-solid fa-magnifying-glass button_logo" title="loupe"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="forms forms_dimensions forms_border">
+            <form class="form-type"> <!-- method="post" action="traitement.php" -->
+                <p>
+                    <!--<label class="title-sorting-form" for="tri"></label>-->
+                    <select class="tab-sorting-form tab-sorting-form_dimensions tab-sorting-form_border ingredient-color JS-ingredients" name="tri">
+                        <!--<option value="ingredients">Ingrédients</option>-->
+                    </select>
+                </p>
+            </form>
+            <form class="form-type"> <!-- method="post" action="traitement.php" -->
+                <p>
+                    <!--<label class="title-sorting-form" for="tri"></label>-->
+                    <select class="tab-sorting-form tab-sorting-form_dimensions tab-sorting-form_border device-color JS-appliance" name="tri">
+                        <!--<option value="device">Appareils</option>-->
+                    </select>
+                </p>
+            </form>
+            <form class="form-type"> <!-- method="post" action="traitement.php" -->
+                <p>
+                    <!--<label class="title-sorting-form" for="tri"></label>-->
+                    <select class="tab-sorting-form tab-sorting-form_dimensions tab-sorting-form_border tool-color JS-ustensils" name="tri">
+                        <!--<option value="tool">Ustensiles</option>-->
+                    </select>
+                </p>
+            </form>
+        </div>
+
+
+
+
+
+
+
+        <div class="allReceipes allReceipes_border"></div>
+    </main>
+    <script src="data/recipes.js"></script>
+    <script src="script_algorithm1/page.js"></script>
+    <script src="script_algorithm1/sortingLists.js"></script>
+    <script src="script_algorithm1/algorithm.js"></script>
+</body>
+
+</html>
