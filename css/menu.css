@@ -72,6 +72,67 @@ body {
 }
 
 /* ---- Main ---- */
+/*-- Boutons filtres --*/
+.sortElements {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
+  -moz-column-gap: 1%;
+       column-gap: 1%;
+}
+.sortElements_dimensions {
+  width: 90%;
+  height: auto;
+}
+.sortElements_border {
+  margin-top: 20px;
+  margin-bottom: auto;
+  margin-left: 5%;
+  margin-right: auto;
+}
+
+.sortBtn {
+  display: none; /*flex*/
+  justify-content: space-around;
+  align-items: center;
+}
+.sortBtn_dimensions {
+  width: 100px;
+  height: 40px;
+}
+.sortBtn_border {
+  border-radius: 5px;
+}
+
+.sortBtnIngredients-color {
+  background-color: #3282F7;
+}
+
+.sortBtnUstensils-color {
+  background-color: #ED6454;
+}
+
+.sortBtnAppliance-color {
+  background-color: #68D9A4;
+}
+
+.sortBtn h3 {
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.close-sortBtn {
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
 /*-- Filtres de recherche avancé --*/
 .forms {
   display: flex;

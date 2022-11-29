@@ -107,6 +107,60 @@
 
 /* ---- Main ---- */
 
+/*-- Boutons filtres --*/
+
+.sortElements{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 5px;
+    column-gap: 1%;
+    &_dimensions{
+        @include dimensions(90%, auto);
+    }
+    &_border{
+        @include margin-package(20px, auto, 5%, auto);
+    }
+}
+
+.sortBtn{
+    display: none; /*flex*/
+    justify-content: space-around;
+    align-items: center;
+    &_dimensions{
+        @include dimensions(100px, 40px);
+    }
+    &_border{
+        border-radius: 5px;
+    }
+}
+
+.sortBtnIngredients-color{
+    background-color: $blue;
+}
+
+.sortBtnUstensils-color{
+    background-color: $red;
+}
+
+.sortBtnAppliance-color{
+    background-color: $green;
+}
+
+.sortBtn h3{
+    color: white;
+    @include syntaxe-lato(18px, normal);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.close-sortBtn{
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
 /*-- Filtres de recherche avancé --*/
 
 .forms{
