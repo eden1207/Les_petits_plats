@@ -264,7 +264,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: normal;
-  overflow: hidden;
+  overflow: auto; /*hidden*/
   text-overflow: ellipsis;
   /*white-space: nowrap;*/
   white-space: normal;

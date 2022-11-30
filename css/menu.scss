@@ -271,7 +271,7 @@
 
 .receipe-text{
     @include syntaxe-roboto(12px, normal);
-    overflow: hidden;
+    overflow: auto;/*hidden*/
     text-overflow: ellipsis;
     /*white-space: nowrap;*/
     white-space: normal;
