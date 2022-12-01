@@ -105,6 +105,15 @@
     }
 }
 
+.error{
+    display: none;
+}
+
+.error h3{
+    @include syntaxe-lato(18px, normal);
+    color: #e54858;
+}
+
 /* ---- Main ---- */
 
 /*-- Boutons filtres --*/
