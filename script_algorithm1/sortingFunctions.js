@@ -1,11 +1,12 @@
-/*---- Fonctionnalité de tri des recettes par mots-clés dans les listes Ingredients/Ustensils/Appliance ----*/
+/*---- Fonctions de tri par mots-clés dans les listes Ingredients/Ustensils/Appliance et la barre de recherche ----*/
 
 /*-- Template Pattern pour définir le squelette de l'algorithme de tri --*/
 
-// Trois classes héritent de la classe Sort
-// Chacune scanne la liste des éléments cliqués respectivement dans les listes Ingredients/Ustensils/Appliance
+// Cinq classes héritent de la classe Sort
+// Chacune scanne les ingredients, les ustensiles, les appareils ainsi que la description et le titre
 // pour récupérer un nouveau tableau de recettes, trié selon les mots filtrés
 
+// Classe passive dont vont hériter toutes les classes dédiées au tri
 class Sort {
     constructor(data, sortedData, keyword) {
         this._data = data
@@ -14,6 +15,11 @@ class Sort {
     }
 }
 
+// Le principe des cinq classes qui vont suivre est de partir d'un tableau de données (data)
+// On compare les éléments un à un avec des mots clés (keyword)
+// Si les éléments matchent avec les mots clés, la donnée est stockée dans un tableau initialement vide (sortedData)
+
+// Classe qui gère le tri en scannant les ingrédients des recettes
 class SortIngredients extends Sort {
     constructor(data, sortedData, keyword) {
         super(data, sortedData, keyword)
@@ -22,7 +28,7 @@ class SortIngredients extends Sort {
     give() {
         for(let i=0; i<this._data.length; i++) {
             for(let j=0; j<this._data[i].ingredients.length; j++) {
-                if(this._data[i].ingredients[j].ingredient === this._keyword || this._data[i].name === this._keyword) {
+                if(this._data[i].ingredients[j].ingredient === this._keyword) {
                     this._sortedData.push(this._data[i]);
                 }
             }
@@ -30,6 +36,7 @@ class SortIngredients extends Sort {
     }
 }
 
+// Classe qui gère le tri en scannant les ustensiles des recettes
 class SortUstensils extends Sort {
     constructor(data, sortedData, keyword) {
         super(data, sortedData, keyword)
@@ -46,6 +53,7 @@ class SortUstensils extends Sort {
     }
 }
 
+// Classe qui gère le tri en scannant les appareils des recettes
 class SortAppliance extends Sort {
     constructor(data, sortedData, keyword) {
         super(data, sortedData, keyword)
@@ -60,6 +68,7 @@ class SortAppliance extends Sort {
     }
 }
 
+// Classe qui gère le tri en scannant le titre des recettes
 class SortTitle extends Sort {
     constructor(data, sortedData, keyword) {
         super(data, sortedData, keyword)
@@ -75,6 +84,7 @@ class SortTitle extends Sort {
     }
 }
 
+// Classe qui gère le tri en scannant la description des recettes
 class SortDescription extends Sort {
     constructor(data, sortedData, keyword) {
         super(data, sortedData, keyword)
@@ -82,9 +92,14 @@ class SortDescription extends Sort {
 
     give() {
         for(let i=0; i<this._data.length; i++) {
+            // Au lieu de faire un tableau.description qui renverrait à un tableau contenant des phrases,
+            // on utilise split(' ') pour renvoyer un tableau de mots
             let descriptionNameList = this._data[i].description.split(' ')
-            for(let j=0; j<descriptionNameList.length; j++) {
-                if(descriptionNameList[j] === this._keyword) {
+            // On enlève les doublons car s'il y a 2 fois le même mot (ex: "Mettre" pour la mousse au chocolat),
+            // la recette sera affichée 2 fois
+            let sortedDescriptionNameList = sortAllElements(descriptionNameList);
+            for(let j=0; j<sortedDescriptionNameList.length; j++) {
+                if(sortedDescriptionNameList[j] === this._keyword) {
                     this._sortedData.push(this._data[i]);
                 }
             }
@@ -92,7 +107,7 @@ class SortDescription extends Sort {
     }
 }
 
-// Fonction de tri dans chacune des 3 listes
+// Fonction de tri en scannant les mots clés dans chacune des cinq listes
 function sortAllCategories(data, sortedData, keyword) {
     new SortIngredients(data, sortedData, keyword).give();
     new SortUstensils(data, sortedData, keyword).give();
@@ -109,7 +124,12 @@ class GetSortedData {
         this._keywords = keywords
     }
 
-    //TODO mieux expliquer
+    // Le principe de la fonction est de partir sur un tableau de données (ici les recettes)
+    // A chaque tour de boucle, on regarde les recettes qui ont le mot clé et on les met dans un tableau (vide au début)
+    // Puis le tableau sortant sera le nouveau tableau qui sera filtré par le mot clé suivant... et ainsi de suite
+    // Ce système de tri permet de sélectionner les recettes qui répondent à tout les critères de filtre 
+
+    // En conclusion, on ne garde que les recettes qui match avec TOUS les mots clés
     give() {
         let res1 = this._data;
         let res2 = [];
@@ -134,6 +154,13 @@ class GetSearchedData {
     give() {
         let res = [];
 
+        // Le principe de la fonction est de prendre un tableau vide
+        // Au premier tour de boucle le tableau va se remplir de toutes les recettes ayant le mot clé
+        // Au deuxième tour de boucle, vont s'ajouter à ce tableau les recettes qui ont le deuxième mot clé etc
+        // Cela permet d'afficher toutes les recettes possibles avec la barre de recherche (plusieurs mots clés possibles quand on tape les premières lettres)
+        // Puis plus on tape de lettres dans la barre de recherche, plus la liste de mots clés est petite et plus la sélection s'affine
+
+        // En conclusion, on ne garde que les recettes qui match avec UN des mots clés
         for(let i=0; i<this._keywords.length; i++) {
             res = sortAllCategories(this._data, res, this._keywords[i]);
         }
