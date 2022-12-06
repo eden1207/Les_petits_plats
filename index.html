@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <title>Les petits plats</title>
 </head>
-
 <body>
-
     <header class="header header_dimensions">
         <img src="assets/logo_resize.jpg" alt="Logo Les petits plats">
         <div class="research research_dimensions">
@@ -31,7 +27,6 @@
             <h3>Aucune recette ne correspond à votre critère… vous pouvez chercher « Tarte aux pommes », « poisson », etc.</h3>
         </div>
     </header>
-
     <main>
         <div class="sortElements sortElements_dimensions sortElements_border JS-sortElements"></div>
         <div class="forms forms_dimensions forms_border">
@@ -54,24 +49,29 @@
                 </p>
             </form>
         </div>
-
-
-
-
-
-
-
         <div class="allReceipes allReceipes_border"></div>
     </main>
-    <script src="data/recipes.js"></script>
-    <script src="script_algorithm1/page.js"></script>
-    <script src="script_algorithm1/sortingLists.js"></script>
-    <script src="script_algorithm1/recipes_description.js"></script>
-    <script src="script_algorithm1/recipes_title.js"></script>
-    <script src="script_algorithm1/sortingFunctions.js"></script>
-    <!--<script src="script_algorithm1/searchingFunctions.js"></script>-->
-    <script src="script_algorithm1/algorithm.js"></script>
-    <script src="script_algorithm1/toolbar.js"></script>
-</body>
 
+    <!-- Les données -->
+    <script src="data/recipes.js"></script>
+
+    <!-- Mise en page des cartes de recette -->
+    <script src="script/recipe_card_pattern/page.js"></script>
+    <!-- Mise en page des menus de recherche avancée et création des tableaux d'ingrédients/appareils/ustensiles -->
+    <script src="script/data_lists/sortingLists.js"></script>
+
+    <!-- Création d'un tableau de mots contenus dans la description pour chaque recette -->
+    <script src="script/data_lists/recipes_description.js"></script>
+    <!-- Création d'un tableau de mots contenus dans le titre de chaque recette -->
+    <script src="script/data_lists/recipes_title.js"></script>
+
+    <!-- Création de deux fonctions de tri par mots clés pour la barre de recherche et pour le menu de recherche avancé -->
+    <script src="script/sorting_functions/sortingFunctions.js"></script>
+
+    <!-- Algorithme de recherche avancée -->
+    <script src="script/algorithms/search_lists.js"></script>
+
+    <!-- Algorithm de la barre de recherche -->
+    <script src="script/algorithms/toolbar.js"></script>
+</body>
 </html>
