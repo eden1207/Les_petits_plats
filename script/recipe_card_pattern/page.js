@@ -58,14 +58,18 @@ function displayIngredients(tab) {
 
 function displayRecipes(tab) {
 
+    // Définition de la classe dans laquelle on va mettre toutes les recettes
     const recipesDisplay = document.querySelector(".allReceipes");
 
+    // Réinitialisation de l'affichage des recettes
     recipesDisplay.innerHTML = '';
 
+    // Génération des cartes de recette
     for(let i=0; i<tab.length; i++) {
         recipesDisplay.innerHTML += new Recipe(tab[i]).create();
     }
 
+    // On ajoute dans chaque carte, la liste des ingrédients pour chaque recette
     for(let i=1; i<tab.length+1; i++) {    
         let id = new Recipe(tab[i-1]).id;
         let recipeIngredients = new Recipe(tab[i-1]).ingredients;

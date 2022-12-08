@@ -11,7 +11,6 @@ searchBar.addEventListener('keyup', (e) => {
 
     // Récupération des mots-clés tapés au clavier
     let keyword = searchKeyword(searchedWord.toLowerCase());
-    console.log(keyword)
 
     // Affiche un message d'erreur si le mot recherché ne correspond pas aux critères
 
@@ -19,10 +18,6 @@ searchBar.addEventListener('keyup', (e) => {
 
     // On instancie la classe qui donne les recettes fltrées avec la barre de recherche
     let newRecipes = new GetSearchedData(recipes, keyword).give();
-
-    //TODO s'il y a trop de bug avec les recettes décuplées, on crééra une fonction qui supprime les recttes sans description...
-
-    console.log(newRecipes)
 
     displayRecipes(newRecipes);
 });
@@ -42,7 +37,6 @@ function searchKeyword(word) {
 
             for(let i=0; i<namesOfListElement.length; i++) {
                 // On prend chaque élément des listes et on garde les mots commençant par les bonnes lettres
-                // TODO On utilise toLowerCase() pour prendre en compte les mots commençant par une minuscule ou majuscule
                 if(namesOfListElement[i].includes(word) === true) {
                     tab.push(namesOfListElement[i])
                 }
@@ -51,7 +45,6 @@ function searchKeyword(word) {
 
         // Cette boucle filtre chaque élément contenus dans les titres de recette
         for(let j=0; j<titles.length; j++) {
-            // TODO On utilise toLowerCase() pour prendre en compte les mots commençant par une minuscule ou majuscule
             if(titles[j].includes(word) === true) {
                 tab.push(titles[j])
             }
@@ -59,14 +52,11 @@ function searchKeyword(word) {
 
         // Cette boucle filtre chaque élément contenu dans les descriptions
         for(let j=0; j<descriptions.length; j++) {
-            // TODO On utilise toLowerCase() pour prendre en compte les mots commençant par une minuscule ou majuscule
             if(descriptions[j].includes(word) === true) {
                 tab.push(descriptions[j])
             }
         }
     }
-    //tab = tab.split(' ');
-    //tab = sortAllElements(tab);
     return tab
 }
 

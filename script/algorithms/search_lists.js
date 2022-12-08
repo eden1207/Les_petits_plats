@@ -57,8 +57,6 @@ for(let i=0; i<sortInformations.length; i++) {
 
 
 
-
-
 // On travaille avec la liste d'ingrédients, chacun associé à un ID
 // La fonction newDOM associe à chaque membre un EventListenner pour qu'au clique, l'élément soit éjecté
 // de la liste et pour lui afficher son bouton filtre

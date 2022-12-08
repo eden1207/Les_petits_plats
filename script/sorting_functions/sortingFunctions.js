@@ -117,26 +117,20 @@ class SortDescription extends Sort {
     }
 }
 
-// TODO Mettre à jour les commentaires et vérifier qu'il n'y a plus de bug sur les tris
-
-// Fonction de tri en scannant les mots clés dans chacune des cinq listes
+// Fonction de tri en scannant les mots clés dans chacune des trois listes ingrédients/ustensiles/appareils
 function sortAllCategories(data, sortedData, keyword) {
     new SortIngredients(data, sortedData, keyword).give();
     new SortUstensils(data, sortedData, keyword).give();
     new SortAppliance(data, sortedData, keyword).give();
-    //new SortTitle(data, sortedData, keyword).give();
-    //new SortDescription(data, sortedData, keyword).give();
     return sortedData
 }
 
+// Fonction de tri en scannant les mots clés dans chacune des trois listes ingrédients/titres/description
 function sortForSearchBar(data, sortedData, keyword) {
     new SortIngredients(data, sortedData, keyword).give();
-    //new SortUstensils(data, sortedData, keyword).give();
-    //new SortAppliance(data, sortedData, keyword).give();
     new SortTitle(data, sortedData, keyword).give();
     new SortDescription(data, sortedData, keyword).give();
     return sortAllElements(sortedData)
-    //return sortedData
 }
 
 // Classe finale qui renvoye un tableau de recettes filtré par mots-clés à partir du tableau de base
@@ -184,8 +178,6 @@ class GetSearchedData {
 
         // En conclusion, on ne garde que les recettes qui match avec UN des mots clés
         for(let i=0; i<this._keywords.length; i++) {
-            // TODO voir si le changement fonctionne
-            //res = sortAllCategories(this._data, res, this._keywords[i]);
             res = sortForSearchBar(this._data, res, this._keywords[i]);
         }
         return res
