@@ -1,7 +1,7 @@
 /*------ Gestion de l'affichage de la page web ------*/
 
 // Création d'un Constructor Pattern pour la gestion de la carte de chaque recette
-
+console.time('ok')
 class Recipe {
     constructor(data) {
         this._id = data.id
@@ -65,9 +65,6 @@ function displayRecipes(tab) {
     recipesDisplay.innerHTML = '';
 
     // Génération des cartes de recette
-    /*for(let i=0; i<tab.length; i++) {
-        recipesDisplay.innerHTML += new Recipe(tab[i]).create();
-    }*/
 
     tab.forEach((tab_element) => {
         recipesDisplay.innerHTML += new Recipe(tab_element).create(); 
