@@ -1,5 +1,28 @@
 /*---- Barre de recherche ----*/
 
+const sortInformations = [
+    {
+      "TabOfNames" : ingredients,
+      "ColorOfList" : 'sortBtnIngredients-color',
+      "NameOfListElementID" : 'ingredient',
+      "NameOfList" : nameOfIngredientsList
+    },
+  
+    {
+      "TabOfNames" : appliance,
+      "ColorOfList" : 'sortBtnAppliance-color',
+      "NameOfListElementID" : 'appliance',
+      "NameOfList" : nameOfApplianceList
+    },
+  
+    {      
+      "TabOfNames" : ustensils,
+      "ColorOfList" : 'sortBtnUstensils-color',
+      "NameOfListElementID" : 'ustensil',
+      "NameOfList" : nameOfUstensilsList
+    }
+];
+
 const searchBar = document.getElementById('search-tool');
 
 // On associe à searchBar un eventListener 'keyup' lié à l'utilisation du clavier
@@ -17,9 +40,30 @@ searchBar.addEventListener('keyup', (e) => {
     displayErrorMessage(searchedWord, keyword);
 
     // On instancie la classe qui donne les recettes fltrées avec la barre de recherche
-    let newRecipes = new GetSearchedData(recipes, keyword).give();
+    let newRecipes2 = new GetSearchedData(recipes, keyword).give();
 
-    displayRecipes(newRecipes);
+    displayRecipes(newRecipes2);
+
+    // Mise à jour des 3 listes de recherche avancée
+    const ingredientsList = new List(newRecipes2, nameOfIngredientsList).giveData();
+    const ustensilsList = new List(newRecipes2, nameOfUstensilsList).giveData();
+    const applianceList = new List(newRecipes2, nameOfApplianceList).giveData();
+
+    // Listes par ordre alphabétique
+    const ingredients = ingredientsList.sort();
+    const ustensils = ustensilsList.sort();
+    const appliance = applianceList.sort();
+
+    displayList(nameOfIngredientsList, ingredients);
+    displayList(nameOfUstensilsList, ustensils);
+    displayList(nameOfApplianceList, appliance);
+
+    ing = ingredients;
+    app = appliance;
+    ust = ustensils;
+
+    // Mise à jour des fonctionnalités des 3 listes
+    newDOM(newRecipes2);
 });
 
 
