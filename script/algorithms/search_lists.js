@@ -107,6 +107,14 @@ function newListDOM(recipesData, tabData, NameOfListElementID, ColorOfList) {
             displayList(nameOfUstensilsList, ust);
             displayList(nameOfApplianceList, app);
 
+            openListBtn('JS-openIngredientsListBtn');
+            openListBtn('JS-openUstensilsListBtn');
+            openListBtn('JS-openApplianceListBtn');
+  
+            closeListBtn('JS-closeIngredientsListBtn');
+            closeListBtn('JS-closeUstensilsListBtn');
+            closeListBtn('JS-closeApplianceListBtn');
+
             /*-- Etape 7: On utilise la récursivité pour répéter les étapes à chaque clique... --*/
 
             newDOM(recipesData);
@@ -222,6 +230,13 @@ function closeSortBtn(recipesData) {
           displayList(nameOfUstensilsList, ust);
           displayList(nameOfApplianceList, app);
 
+          openListBtn('JS-openIngredientsListBtn');
+          openListBtn('JS-openUstensilsListBtn');
+          openListBtn('JS-openApplianceListBtn');
+
+          closeListBtn('JS-closeIngredientsListBtn');
+          closeListBtn('JS-closeUstensilsListBtn');
+          closeListBtn('JS-closeApplianceListBtn');
 
           newDOM(recipesData);
       });
