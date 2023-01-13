@@ -31,39 +31,89 @@ searchBar.addEventListener('keyup', (e) => {
 
     // On récupère le mot tapé dans la barre de recherche
     const searchedWord = e.target.value;
+    
+    if(searchedWord.length<=2) {
+        let keyword = searchKeyword(searchedWord.toLowerCase());
 
-    // Récupération des mots-clés tapés au clavier
-    let keyword = searchKeyword(searchedWord.toLowerCase());
+        // Affiche un message d'erreur si le mot recherché ne correspond pas aux critères
+        displayErrorMessage(searchedWord, keyword);
 
-    // Affiche un message d'erreur si le mot recherché ne correspond pas aux critères
+        displayRecipes(recipes);
 
-    displayErrorMessage(searchedWord, keyword);
+        // Mise à jour des 3 listes de recherche avancée
+        const ingredientsList = new List(recipes, nameOfIngredientsList).giveData();
+        const ustensilsList = new List(recipes, nameOfUstensilsList).giveData();
+        const applianceList = new List(recipes, nameOfApplianceList).giveData();
 
-    // On instancie la classe qui donne les recettes fltrées avec la barre de recherche
-    let newRecipes2 = new GetSearchedData(recipes, keyword).give();
+        // Listes par ordre alphabétique
+        const ingredients = ingredientsList.sort();
+        const ustensils = ustensilsList.sort();
+        const appliance = applianceList.sort();
+    
+        displayList(nameOfIngredientsList, ingredients);
+        displayList(nameOfUstensilsList, ustensils);
+        displayList(nameOfApplianceList, appliance);
 
-    displayRecipes(newRecipes2);
+        // Mise à jour des ouvertures/fermetures des 3 listes
+        openListBtn('JS-openIngredientsListBtn');
+        openListBtn('JS-openUstensilsListBtn');
+        openListBtn('JS-openApplianceListBtn');
 
-    // Mise à jour des 3 listes de recherche avancée
-    const ingredientsList = new List(newRecipes2, nameOfIngredientsList).giveData();
-    const ustensilsList = new List(newRecipes2, nameOfUstensilsList).giveData();
-    const applianceList = new List(newRecipes2, nameOfApplianceList).giveData();
+        closeListBtn('JS-closeIngredientsListBtn');
+        closeListBtn('JS-closeUstensilsListBtn');
+        closeListBtn('JS-closeApplianceListBtn');
 
-    // Listes par ordre alphabétique
-    const ingredients = ingredientsList.sort();
-    const ustensils = ustensilsList.sort();
-    const appliance = applianceList.sort();
+        ing = ingredients;
+        app = appliance;
+        ust = ustensils;
 
-    displayList(nameOfIngredientsList, ingredients);
-    displayList(nameOfUstensilsList, ustensils);
-    displayList(nameOfApplianceList, appliance);
+        // Mise à jour des fonctionnalités des 3 listes
+        newDOM(recipes);
 
-    ing = ingredients;
-    app = appliance;
-    ust = ustensils;
+    } else if(searchedWord.length>2) {
+        let keyword = searchKeyword(searchedWord.toLowerCase());
 
-    // Mise à jour des fonctionnalités des 3 listes
-    newDOM(newRecipes2);
+        // Affiche un message d'erreur si le mot recherché ne correspond pas aux critères
+        displayErrorMessage(searchedWord, keyword);
+
+        // On instancie la classe qui donne les recettes fltrées avec la barre de recherche
+        let newRecipes2 = new GetSearchedData(recipes, keyword).give();
+
+        displayRecipes(newRecipes2);
+
+        // Mise à jour des 3 listes de recherche avancée
+        const ingredientsList = new List(newRecipes2, nameOfIngredientsList).giveData();
+        const ustensilsList = new List(newRecipes2, nameOfUstensilsList).giveData();
+        const applianceList = new List(newRecipes2, nameOfApplianceList).giveData();
+
+        // Listes par ordre alphabétique
+        const ingredients = ingredientsList.sort();
+        const ustensils = ustensilsList.sort();
+        const appliance = applianceList.sort();
+    
+        displayList(nameOfIngredientsList, ingredients);
+        displayList(nameOfUstensilsList, ustensils);
+        displayList(nameOfApplianceList, appliance);
+
+        // Mise à jour des ouvertures/fermetures des 3 listes
+        openListBtn('JS-openIngredientsListBtn');
+        openListBtn('JS-openUstensilsListBtn');
+        openListBtn('JS-openApplianceListBtn');
+
+        closeListBtn('JS-closeIngredientsListBtn');
+        closeListBtn('JS-closeUstensilsListBtn');
+        closeListBtn('JS-closeApplianceListBtn');
+    
+        ing = ingredients;
+        app = appliance;
+        ust = ustensils;
+
+        // Mise à jour des fonctionnalités des 3 listes
+        newDOM(newRecipes2);
+
+    } else {
+        console.log('Problème survenu')
+    }
 });
 
 
