@@ -209,6 +209,8 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: #3282F7;
+  border-radius: 5px;
+  overflow: hidden;
 }
 @media all and (min-width: 992px) {
   .ingredientsOpen {
@@ -232,6 +234,8 @@ body {
 .applianceOpen {
   display: flex;
   background-color: #68D9A4;
+  border-radius: 5px;
+  overflow: hidden;
 }
 @media all and (min-width: 992px) {
   .applianceOpen {
@@ -255,6 +259,8 @@ body {
 .ustensilsOpen {
   display: flex;
   background-color: #ED6454;
+  border-radius: 5px;
+  overflow: hidden;
 }
 @media all and (min-width: 992px) {
   .ustensilsOpen {
@@ -279,6 +285,8 @@ body {
   display: none;
   flex-direction: column;
   background-color: #3282F7;
+  border-radius: 5px;
+  overflow: hidden;
 }
 @media all and (min-width: 992px) {
   .JS-ingredients {
@@ -303,6 +311,8 @@ body {
   display: none;
   flex-direction: column;
   background-color: #ED6454;
+  border-radius: 5px;
+  overflow: hidden;
 }
 @media all and (min-width: 992px) {
   .JS-ustensils {
@@ -327,6 +337,8 @@ body {
   display: none;
   flex-direction: column;
   background-color: #68D9A4;
+  border-radius: 5px;
+  overflow: hidden;
 }
 @media all and (min-width: 992px) {
   .JS-appliance {
@@ -358,7 +370,7 @@ body {
   cursor: pointer;
   border-style: none;
   width: 100%;
-  height: none;
+  height: 70px;
   padding-top: none;
   padding-bottom: none;
   padding-left: 2%;
