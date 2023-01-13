@@ -120,7 +120,7 @@ function displayList(className, tabName) {
     if(className === nameOfIngredientsList) {
         document.querySelector(className).innerHTML = '';
 
-        let listTitle = `<button id="JS-closeIngredientsListBtn" class="listTitle ingredient-color"><h3>Ingrédients</h3><i class="fa-solid fa-chevron-up"></i></button>`;
+        let listTitle = `<button id="JS-closeIngredientsListBtn" class="listTitle ingredient-color">Ingrédients<i class="fa-solid fa-chevron-up"></i></button>`;
         document.querySelector(className).innerHTML = listTitle;
         let listContainer = `<div class="listContainerIngrédients"></div>`;
         document.querySelector(className).innerHTML += listContainer;
@@ -131,7 +131,7 @@ function displayList(className, tabName) {
     }else if(className === nameOfUstensilsList) {
         document.querySelector(className).innerHTML = '';
 
-        let listTitle = `<button id="JS-closeUstensilsListBtn" class="listTitle tool-color"><h3>Ustensiles</h3><i class="fa-solid fa-chevron-up"></i></button>`;
+        let listTitle = `<button id="JS-closeUstensilsListBtn" class="listTitle tool-color">Ustensiles<i class="fa-solid fa-chevron-up"></i></button>`;
         document.querySelector(className).innerHTML = listTitle;
         let listContainer = `<div class="listContainerUstensils"></div>`;
         document.querySelector(className).innerHTML += listContainer;
@@ -142,7 +142,7 @@ function displayList(className, tabName) {
     }else if (className === nameOfApplianceList) {
         document.querySelector(className).innerHTML = '';
 
-        let listTitle = `<button id="JS-closeApplianceListBtn" class="listTitle device-color"><h3>Appareils</h3><i class="fa-solid fa-chevron-up"></i></button>`;
+        let listTitle = `<button id="JS-closeApplianceListBtn" class="listTitle device-color">Appareils<i class="fa-solid fa-chevron-up"></i></button>`;
         document.querySelector(className).innerHTML = listTitle;
         let listContainer = `<div class="listContainerAppliance"></div>`;
         document.querySelector(className).innerHTML += listContainer;
