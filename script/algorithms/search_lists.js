@@ -123,15 +123,6 @@ function newListDOM(recipesData, tabData, NameOfListElementID, ColorOfList) {
     });
 }
 
-// Fonction qui vise à prendre l'élément i d'un tableau (correspondant à l'élément cliqué) pour le supprimer
-function upDateList(data, number) {
-  // on prend l'indice de l'élément dans le tableau
-  let indexElement = data.indexOf(data[number])
-  // puis on le supprime du tableau
-  data.splice(indexElement, 1);
-  return data
-}
-
 // Constructor Pattern pour l'affichage des boutons de filtre avancé
 class SortBtnDOM {
   constructor(title, color, id, close_id) {
