@@ -110,6 +110,9 @@ searchBar.addEventListener('keyup', (e) => {
 
         // Mise à jour des fonctionnalités des 3 listes
         newDOM(newRecipes2);
+        miniResearchBar('ingredients-search-tool');
+        miniResearchBar('ustensils-search-tool');
+        miniResearchBar('appliance-search-tool');
 
     } else {
         console.log('Problème survenu')
