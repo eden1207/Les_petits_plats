@@ -1,9 +1,5 @@
 /*---- Barre de recherche des listes de recherche avancée ----*/
 
-miniResearchBar('ingredients-search-tool', recipes, ingredients, ustensils, appliance);
-miniResearchBar('ustensils-search-tool', recipes,  ingredients, ustensils, appliance);
-miniResearchBar('appliance-search-tool', recipes, ingredients, ustensils, appliance);
-
 function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
 
     if(classMiniSearchToll === 'ingredients-search-tool') {
@@ -39,7 +35,6 @@ function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
             const searchedWord = e.target.value;
     
             let element_words = searchWord(searchedWord.toLowerCase(), ust);
-            /*console.log(element_words)*/
     
             if(element_words.length !==0) {
                 const columnNumberElement = 3;
@@ -47,7 +42,7 @@ function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
         
                 createListTAG(element_words, "ustensil", '.listContainerUstensils', 'ustensilListTAG', lignNumberElement, columnNumberElement, 'tool-color');
         
-                newListDOM(recipes, element_words, 'ustensil', 'sortBtnUstensils-color');
+                newListDOM(recipesData, element_words, 'ustensil', 'sortBtnUstensils-color');
             }else if(element_words.length ===0) {
                 const columnNumberElement = 3;
                 let lignNumberElement = Math.ceil(ust.length/columnNumberElement);
@@ -72,7 +67,7 @@ function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
         
                 createListTAG(element_words, "appliance", '.listContainerAppliance', 'applianceListTAG', lignNumberElement, columnNumberElement, 'device-color');
         
-                newListDOM(recipes, element_words, 'appliance', 'sortBtnAppliance-color');
+                newListDOM(recipesData, element_words, 'appliance', 'sortBtnAppliance-color');
             }else if(element_words.length ===0) {
                 const columnNumberElement = 3;
                 let lignNumberElement = Math.ceil(app.length/columnNumberElement);
