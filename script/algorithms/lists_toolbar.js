@@ -15,8 +15,6 @@ function miniResearchBar(classMiniSearchToll) {
     
             let element_words = searchWord(searchedWord.toLowerCase(), ingredients);
     
-            console.log(element_words)
-    
             if(element_words.length !==0) {
                 const columnNumberElement = 3;
                 let lignNumberElement = Math.ceil(element_words.length/columnNumberElement);
@@ -34,8 +32,6 @@ function miniResearchBar(classMiniSearchToll) {
             const searchedWord = e.target.value;
     
             let element_words = searchWord(searchedWord.toLowerCase(), ustensils);
-    
-            console.log(element_words)
     
             if(element_words.length !==0) {
                 const columnNumberElement = 3;
@@ -55,8 +51,6 @@ function miniResearchBar(classMiniSearchToll) {
     
             let element_words = searchWord(searchedWord.toLowerCase(), appliance);
     
-            console.log(element_words)
-    
             if(element_words.length !==0) {
                 const columnNumberElement = 3;
                 let lignNumberElement = Math.ceil(element_words.length/columnNumberElement);
@@ -73,14 +67,10 @@ function searchWord(word, tabData) {
     let tab = [];
 
     if(word.length>2) {
-        for(let j=0; j<tabData.length; j++) {
-            const namesOfListElement = tabData;
-    
-            for(let i=0; i<namesOfListElement.length; i++) {
-                // On prend chaque élément des listes et on garde les mots commençant par les bonnes lettres
-                if(namesOfListElement[i].includes(word) === true) {
-                    tab.push(namesOfListElement[i])
-                }
+        for(let i=0; i<tabData.length; i++) {
+            // On prend chaque élément des listes et on garde les mots commençant par les bonnes lettres
+            if(tabData[i].includes(word) === true) {
+                tab.push(tabData[i])
             }
         }
     }

@@ -69,6 +69,9 @@ searchBar.addEventListener('keyup', (e) => {
 
         // Mise à jour des fonctionnalités des 3 listes
         newDOM(recipes);
+        miniResearchBar('ingredients-search-tool');
+        miniResearchBar('ustensils-search-tool');
+        miniResearchBar('appliance-search-tool');
 
     } else if(searchedWord.length>2) {
         let keyword = searchKeyword(searchedWord.toLowerCase());
