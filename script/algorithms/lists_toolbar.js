@@ -22,6 +22,13 @@ function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
                 createListTAG(element_words, 'ingredient', '.listContainerIngrédients', 'ingredientListTAG', lignNumberElement, columnNumberElement, 'ingredient-color');
         
                 newListDOM(recipesData, element_words, 'ingredient', 'sortBtnIngredients-color');
+            }else if(element_words.length ===0) {
+                const columnNumberElement = 3;
+                let lignNumberElement = Math.ceil(ing.length/columnNumberElement);
+        
+                createListTAG(ing, 'ingredient', '.listContainerIngrédients', 'ingredientListTAG', lignNumberElement, columnNumberElement, 'ingredient-color');
+        
+                newListDOM(recipesData, ing, 'ingredient', 'sortBtnIngredients-color');
             }
         });
     }else if(classMiniSearchToll === 'ustensils-search-tool') {
@@ -32,6 +39,7 @@ function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
             const searchedWord = e.target.value;
     
             let element_words = searchWord(searchedWord.toLowerCase(), ust);
+            /*console.log(element_words)*/
     
             if(element_words.length !==0) {
                 const columnNumberElement = 3;
@@ -40,6 +48,13 @@ function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
                 createListTAG(element_words, "ustensil", '.listContainerUstensils', 'ustensilListTAG', lignNumberElement, columnNumberElement, 'tool-color');
         
                 newListDOM(recipes, element_words, 'ustensil', 'sortBtnUstensils-color');
+            }else if(element_words.length ===0) {
+                const columnNumberElement = 3;
+                let lignNumberElement = Math.ceil(ust.length/columnNumberElement);
+        
+                createListTAG(ust, "ustensil", '.listContainerUstensils', 'ustensilListTAG', lignNumberElement, columnNumberElement, 'tool-color');
+        
+                newListDOM(recipesData, ust, 'ustensil', 'sortBtnUstensils-color');
             }
         });
     }else if(classMiniSearchToll === 'appliance-search-tool') {
@@ -58,6 +73,13 @@ function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
                 createListTAG(element_words, "appliance", '.listContainerAppliance', 'applianceListTAG', lignNumberElement, columnNumberElement, 'device-color');
         
                 newListDOM(recipes, element_words, 'appliance', 'sortBtnAppliance-color');
+            }else if(element_words.length ===0) {
+                const columnNumberElement = 3;
+                let lignNumberElement = Math.ceil(app.length/columnNumberElement);
+        
+                createListTAG(app, "appliance", '.listContainerAppliance', 'applianceListTAG', lignNumberElement, columnNumberElement, 'device-color');
+        
+                newListDOM(recipesData, app, 'appliance', 'sortBtnAppliance-color');
             }
         });
     }
