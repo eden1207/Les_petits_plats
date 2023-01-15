@@ -120,7 +120,16 @@ function displayList(className, tabName) {
     if(className === nameOfIngredientsList) {
         document.querySelector(className).innerHTML = '';
 
-        let listTitle = `<button id="JS-closeIngredientsListBtn" class="listTitle ingredient-color">Ingrédients<i class="fa-solid fa-chevron-up"></i></button>`;
+        let listTitle = `<div class="miniresearch miniresearch_dimensions">
+                            <form>
+                                <p>
+                                    <label for="ingredients-search-tool"></label>
+                                    <input type="text" name="search-tool" id="ingredients-search-tool" class="minisearch-request minisearch-request_dimensions ingredient-color" placeholder="Rechercher un ingrédient" size="40" maxlength="30">
+                                </p>
+                            </form>
+                            <button id="JS-closeIngredientsListBtn" class="button-minitoolbar button-minitoolbar_dimensions ingredient-color"><i class="fa-solid fa-chevron-up button-minitoolbar_logo" title="flèche"></i></button>
+                        </div>`;
+
         document.querySelector(className).innerHTML = listTitle;
         let listContainer = `<div class="listContainerIngrédients"></div>`;
         document.querySelector(className).innerHTML += listContainer;
@@ -131,7 +140,16 @@ function displayList(className, tabName) {
     }else if(className === nameOfUstensilsList) {
         document.querySelector(className).innerHTML = '';
 
-        let listTitle = `<button id="JS-closeUstensilsListBtn" class="listTitle tool-color">Ustensiles<i class="fa-solid fa-chevron-up"></i></button>`;
+        let listTitle = `<div class="miniresearch miniresearch_dimensions">
+                            <form>
+                                <p>
+                                     <label for="ustensils-search-tool"></label>
+                                     <input type="text" name="search-tool" id="ustensils-search-tool" class="minisearch-request minisearch-request_dimensions tool-color" placeholder="Rechercher un ustensile" size="40" maxlength="30">
+                                </p>
+                            </form>
+                            <button id="JS-closeUstensilsListBtn" class="button-minitoolbar button-minitoolbar_dimensions tool-color"><i class="fa-solid fa-chevron-up button-minitoolbar_logo" title="flèche"></i></button>
+                        </div>`;
+
         document.querySelector(className).innerHTML = listTitle;
         let listContainer = `<div class="listContainerUstensils"></div>`;
         document.querySelector(className).innerHTML += listContainer;
@@ -142,7 +160,16 @@ function displayList(className, tabName) {
     }else if (className === nameOfApplianceList) {
         document.querySelector(className).innerHTML = '';
 
-        let listTitle = `<button id="JS-closeApplianceListBtn" class="listTitle device-color">Appareils<i class="fa-solid fa-chevron-up"></i></button>`;
+        let listTitle = `<div class="miniresearch miniresearch_dimensions">
+                            <form>
+                                <p>
+                                    <label for="appliance-search-tool"></label>
+                                    <input type="text" name="search-tool" id="appliance-search-tool" class="minisearch-request minisearch-request_dimensions device-color" placeholder="Rechercher un appareil" size="40" maxlength="30">
+                                </p>
+                            </form>
+                            <button id="JS-closeApplianceListBtn" class="button-minitoolbar button-minitoolbar_dimensions device-color"><i class="fa-solid fa-chevron-up button-minitoolbar_logo" title="flèche"></i></button>
+                        </div>`;
+
         document.querySelector(className).innerHTML = listTitle;
         let listContainer = `<div class="listContainerAppliance"></div>`;
         document.querySelector(className).innerHTML += listContainer;
@@ -162,6 +189,7 @@ displayList(nameOfApplianceList, appliance);
 // Fonction qui génère le DOM de chacune des 3 listes
 
 function createListTAG(tabData, id_element, listContainers, listTAGClassName, lignNumberElement, columnNumberElement, colorList) {
+    document.querySelector(listContainers).innerHTML = '';
     for(let j=0; j<lignNumberElement; j++){
         let pas = j*columnNumberElement;
         let listTAGname = listTAGClassName + j;

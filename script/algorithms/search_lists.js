@@ -119,6 +119,9 @@ function newListDOM(recipesData, tabData, NameOfListElementID, ColorOfList) {
             /*-- Etape 7: On utilise la récursivité pour répéter les étapes à chaque clique... --*/
 
             newDOM(recipesData);
+            miniResearchBar('ingredients-search-tool');
+            miniResearchBar('ustensils-search-tool');
+            miniResearchBar('appliance-search-tool');
         });
     });
 }
@@ -232,6 +235,9 @@ function closeSortBtn(recipesData) {
           closeListBtn('JS-closeApplianceListBtn');
 
           newDOM(recipesData);
+          miniResearchBar('ingredients-search-tool');
+          miniResearchBar('ustensils-search-tool');
+          miniResearchBar('appliance-search-tool');
         });
     });
 }
