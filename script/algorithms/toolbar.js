@@ -69,9 +69,9 @@ searchBar.addEventListener('keyup', (e) => {
 
         // Mise à jour des fonctionnalités des 3 listes
         newDOM(recipes);
-        miniResearchBar('ingredients-search-tool');
-        miniResearchBar('ustensils-search-tool');
-        miniResearchBar('appliance-search-tool');
+        miniResearchBar('ingredients-search-tool', recipes, ing, ust, app);
+        miniResearchBar('ustensils-search-tool', recipes, ing, ust, app);
+        miniResearchBar('appliance-search-tool', recipes, ing, ust, app);
 
     } else if(searchedWord.length>2) {
         let keyword = searchKeyword(searchedWord.toLowerCase());
@@ -113,9 +113,9 @@ searchBar.addEventListener('keyup', (e) => {
 
         // Mise à jour des fonctionnalités des 3 listes
         newDOM(newRecipes2);
-        miniResearchBar('ingredients-search-tool');
-        miniResearchBar('ustensils-search-tool');
-        miniResearchBar('appliance-search-tool');
+        miniResearchBar('ingredients-search-tool', newRecipes2, ing, ust, app);
+        miniResearchBar('ustensils-search-tool', newRecipes2, ing, ust, app);
+        miniResearchBar('appliance-search-tool', newRecipes2, ing, ust, app);
 
     } else {
         console.log('Problème survenu')

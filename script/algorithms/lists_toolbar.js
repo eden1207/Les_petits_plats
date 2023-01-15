@@ -1,10 +1,10 @@
 /*---- Barre de recherche des listes de recherche avancée ----*/
 
-miniResearchBar('ingredients-search-tool');
-miniResearchBar('ustensils-search-tool');
-miniResearchBar('appliance-search-tool');
+miniResearchBar('ingredients-search-tool', recipes, ingredients, ustensils, appliance);
+miniResearchBar('ustensils-search-tool', recipes, ingredients, ustensils, appliance);
+miniResearchBar('appliance-search-tool', recipes, ingredients, ustensils, appliance);
 
-function miniResearchBar(classMiniSearchToll) {
+function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
 
     if(classMiniSearchToll === 'ingredients-search-tool') {
         const miniSearchBar = document.getElementById(classMiniSearchToll);
@@ -13,7 +13,7 @@ function miniResearchBar(classMiniSearchToll) {
     
             const searchedWord = e.target.value;
     
-            let element_words = searchWord(searchedWord.toLowerCase(), ingredients);
+            let element_words = searchWord(searchedWord.toLowerCase(), ing);
     
             if(element_words.length !==0) {
                 const columnNumberElement = 3;
@@ -21,7 +21,7 @@ function miniResearchBar(classMiniSearchToll) {
         
                 createListTAG(element_words, 'ingredient', '.listContainerIngrédients', 'ingredientListTAG', lignNumberElement, columnNumberElement, 'ingredient-color');
         
-                newListDOM(recipes, element_words, 'ingredient', 'sortBtnIngredients-color');
+                newListDOM(recipesData, element_words, 'ingredient', 'sortBtnIngredients-color');
             }
         });
     }else if(classMiniSearchToll === 'ustensils-search-tool') {
@@ -31,7 +31,7 @@ function miniResearchBar(classMiniSearchToll) {
     
             const searchedWord = e.target.value;
     
-            let element_words = searchWord(searchedWord.toLowerCase(), ustensils);
+            let element_words = searchWord(searchedWord.toLowerCase(), ust);
     
             if(element_words.length !==0) {
                 const columnNumberElement = 3;
@@ -39,7 +39,7 @@ function miniResearchBar(classMiniSearchToll) {
         
                 createListTAG(element_words, "ustensil", '.listContainerUstensils', 'ustensilListTAG', lignNumberElement, columnNumberElement, 'tool-color');
         
-                newListDOM(recipes, element_words, 'ustensil', 'sortBtnUstensils-color');
+                newListDOM(recipesData, element_words, 'ustensil', 'sortBtnUstensils-color');
             }
         });
     }else if(classMiniSearchToll === 'appliance-search-tool') {
@@ -49,7 +49,7 @@ function miniResearchBar(classMiniSearchToll) {
     
             const searchedWord = e.target.value;
     
-            let element_words = searchWord(searchedWord.toLowerCase(), appliance);
+            let element_words = searchWord(searchedWord.toLowerCase(), app);
     
             if(element_words.length !==0) {
                 const columnNumberElement = 3;
@@ -57,7 +57,7 @@ function miniResearchBar(classMiniSearchToll) {
         
                 createListTAG(element_words, "appliance", '.listContainerAppliance', 'applianceListTAG', lignNumberElement, columnNumberElement, 'device-color');
         
-                newListDOM(recipes, element_words, 'appliance', 'sortBtnAppliance-color');
+                newListDOM(recipesData, element_words, 'appliance', 'sortBtnAppliance-color');
             }
         });
     }
