@@ -1,9 +1,5 @@
 /*---- Barre de recherche des listes de recherche avancée ----*/
 
-miniResearchBar('ingredients-search-tool', recipes, ingredients, ustensils, appliance);
-miniResearchBar('ustensils-search-tool', recipes, ingredients, ustensils, appliance);
-miniResearchBar('appliance-search-tool', recipes, ingredients, ustensils, appliance);
-
 function miniResearchBar(classMiniSearchToll, recipesData, ing, ust, app) {
 
     if(classMiniSearchToll === 'ingredients-search-tool') {
