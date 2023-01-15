@@ -205,6 +205,63 @@ body {
   background-color: #ED6454;
 }
 
+.miniresearch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+.miniresearch_dimensions {
+  width: 100%;
+  height: 60px;
+}
+
+.minisearch-request {
+  border: none;
+  outline: none;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 3%;
+  margin-right: auto;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  color: white;
+}
+.minisearch-request_dimensions {
+  width: 75%;
+  height: 50px;
+}
+
+.minisearch-request::-moz-placeholder {
+  color: white;
+}
+
+.minisearch-request:-ms-input-placeholder {
+  color: white;
+}
+
+.minisearch-request::placeholder {
+  color: white;
+}
+
+.button-minitoolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button-minitoolbar_dimensions {
+  width: 50px;
+  height: 50px;
+}
+.button-minitoolbar_logo {
+  font-size: 20px;
+  color: white;
+}
+
 .ingredientsOpen {
   display: flex;
   justify-content: space-between;

@@ -216,6 +216,46 @@
     background-color: $red;
 }
 
+.miniresearch{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    &_dimensions{
+        @include dimensions(100%, 60px);
+    }
+}
+
+.minisearch-request{
+    border: none;
+    outline: none;
+    @include margin-package(auto, auto, 3%, auto);
+    @include syntaxe-lato(18px, normal);
+    color: white;
+    &_dimensions{
+        @include dimensions(75%, 50px);
+    }
+}
+
+.minisearch-request::placeholder{
+    color: white;
+}
+
+.button-minitoolbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &_dimensions{
+        @include dimensions(50px, 50px);
+    }
+    &_logo{
+        font-size: 20px;
+        color: white;
+    }
+}
 
 .ingredientsOpen{
     display: flex;
